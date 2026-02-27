@@ -1,0 +1,6 @@
+﻿demo_key.json
+demo_ledger.jsonl
+*.jsonl
+__pycache__/
+*.pyc
+.env
