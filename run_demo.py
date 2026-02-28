@@ -37,13 +37,11 @@ def main():
     print()
 
     # ── Key ───────────────────────────────────────────────────
-    if KEY_PATH.exists():
-        key = Ed25519KeyManager.load(KEY_PATH)
-        print(f"  Loaded key  : {KEY_PATH}")
-    else:
-        key = Ed25519KeyManager.generate()
-        key.save(KEY_PATH)
-        print(f"  Generated key: {KEY_PATH}")
+if KEY_PATH.exists():
+    key = Ed25519KeyManager.from_file(KEY_PATH)   # was .load()
+else:
+    key = Ed25519KeyManager.generate()
+    key.save(KEY_PATH)
 
     print(f"  Public key   : {key.public_key_hex[:32]}...")  # property, no ()
     print()
