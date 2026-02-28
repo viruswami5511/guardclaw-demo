@@ -7,7 +7,19 @@ cryptographic accountability for AI agents (GEF v1.0).
 
 ---
 
+
 ## Install
+
+\*\*No LLM required. No API keys. Pure cryptography.\*\*
+
+
+
+---
+
+
+
+\## Install
+
 
 ```bash
 pip install guardclaw
@@ -19,11 +31,26 @@ cd guardclaw-demo
 
 ## Run the Demo
 
+
 ### Step 1 — Generate a signed ledger
+
+---
+
+
+
+\## Run the Demo
+
+
+
+\### Step 1 — Generate a signed ledger
+
+
 
 ```bash
 python run_demo.py
 ```
+
+
 
 ```
  intent        nonce=3f8a2b1d4e...  chain=...4a2f1c8e
@@ -37,9 +64,17 @@ Ledger written: demo_ledger.jsonl
 
 ### Step 2 — Verify the clean ledger
 
+
+
+\### Step 2 — Verify the clean ledger
+
+
+
 ```bash
 python verify.py
 ```
+
+
 
 ```
  intent        SIG:OK    CHAIN:OK
@@ -51,16 +86,36 @@ python verify.py
 Entries    : 5
 Violations : 0
 
+Entries    : 5
+
+Violations : 0
+
+
+
 RESULT: CLEAN
 All signatures valid. Chain intact.
+
 This ledger has not been tampered with.
 ```
 
 ### Step 3 — Simulate an attacker editing entry #2
 
+
+This ledger has not been tampered with.
+
+```
+
+
+
+\### Step 3 — Simulate an attacker editing entry #2
+
+
+
 ```bash
 python tamper.py
 ```
+
+
 
 ```
 Target entry   : sequence #2
@@ -70,11 +125,20 @@ Modified:  endpoint=https://legitimate-api.internal/safe  result=low_risk_cleare
 Ledger modified on disk.
 ```
 
+
 ### Step 4 — Verify the tampered ledger
+
+
+
+\### Step 4 — Verify the tampered ledger
+
+
 
 ```bash
 python verify.py
 ```
+
+
 
 ```
  intent        SIG:OK    CHAIN:OK
@@ -86,14 +150,33 @@ python verify.py
 Entries    : 5
 Violations : 2
 
+Entries    : 5
+
+Violations : 2
+
+
+
 RESULT: TAMPERED
 2 violation(s) detected:
 
   [seq 2]  INVALID_SIGNATURE
            Signature invalid (signer: ae929f5bd7bb176b...)
 
+
   [seq 3]  CHAIN_BREAK
            causal_hash mismatch: expected ...c4d891b3, got ...7f1a2e9d
+
+ \[seq 2]  INVALID\_SIGNATURE
+
+         Signature invalid (signer: ae929f5bd7bb176b...)
+
+
+
+ \[seq 3]  CHAIN\_BREAK
+
+         causal\_hash mismatch: expected ...c4d891b3, got ...7f1a2e9d
+
+
 
 This ledger was modified after signing.
 Tampering is cryptographically proven.
@@ -101,7 +184,17 @@ Tampering is cryptographically proven.
 
 ---
 
+
 ## Why This Matters
+
+
+---
+
+
+
+\## Why This Matters
+
+
 
 The attacker changed a payload field — one line in a JSON file.
 GuardClaw caught it because:
@@ -117,7 +210,24 @@ No central server. No SaaS. Offline verification by anyone.
 
 ## Protocol Specification
 
+
 [GEF-SPEC-1.0](https://github.com/viruswami5511/guardclaw/blob/master/SPEC.md)
+
+---
+
+
+
+\## Protocol Specification
+
+
+
+\[GEF-SPEC-1.0](https://github.com/viruswami5511/guardclaw/blob/master/SPEC.md)
+
+
+
+\## License
+
+>>>>>>> be92126 (docs: update README for v0.5.1)
 
 ## License
 
