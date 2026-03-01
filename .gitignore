@@ -4,3 +4,5 @@ demo_ledger.jsonl
 __pycache__/
 *.pyc
 .env
+echo "demo_ledger/" >> .gitignore
+echo "*.jsonl" >> .gitignore
