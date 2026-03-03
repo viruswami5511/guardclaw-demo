@@ -35,6 +35,9 @@ python run_demo.py
 Ledger written: demo_ledger.jsonl
 ```
 
+All artifacts (keys + ledger) are generated locally when you run the demo.
+
+
 ### Step 2 — Verify the clean ledger
 
 ```bash
