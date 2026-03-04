@@ -117,18 +117,6 @@ The verifier needs only the **public key** embedded in each envelope. No central
 
 ---
 
-## Concurrency Safe
-
-Two threads writing simultaneously — zero entries lost, zero chain violations, all 20 signatures valid.
-
-Run it yourself:
-
-```bash
-python demo_concurrency.py
-```
-
----
-
 ## Protocol Specification
 
 [GEF-SPEC-1.0](https://github.com/viruswami5511/guardclaw/blob/master/SPEC.md)
